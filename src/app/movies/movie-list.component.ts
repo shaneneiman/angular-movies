@@ -10,7 +10,6 @@ import { MovieService } from './movie.service'
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  errorMessage = '';
 
   _searchQuery = '';
   get searchQuery(): string {
@@ -29,7 +28,7 @@ export class MovieListComponent implements OnInit {
       data => this.movies = data.results
     )
   }
-
+  
   ngOnInit(): void {
   }
 }
