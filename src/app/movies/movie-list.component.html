@@ -1,0 +1,35 @@
+<div class="pa4-l">
+    <div class="bg-light-red mw7 center pa4 br2-ns ba b--black-10">
+      <div class="cf bn ma0 pa0">
+        <legend class="pa0 f5 f4-ns mb3 black-80">Search for Movies</legend>
+        <div class="cf">
+          <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="Your Favorite Movie" type="text" [(ngModel)]='searchQuery'>
+          <button class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns" type="submit" (click)='sendRequest()'>Search</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="pa4">
+    <div>
+      <table class="f6 w-100 mw8 center" cellspacing="0">
+        <thead>
+          <tr>
+            <th class="bg-light-red pv3 pr3 bb b--black-20 tl">Title</th>
+            <th class="bg-light-red pv3 pr3 bb b--black-20 tl">Vote Average</th>
+            <th class="bg-light-red pv3 pr3 bb b--black-20 tl">Vote Count</th>
+            <th class="bg-light-red pv3 pr3 bb b--black-20 tl">Original Language</th>
+          </tr>
+        </thead>
+        <tbody class="lh-copy" *ngIf="movies">
+          <tr *ngFor='let movie of movies'>
+            <td class="pv3 pr3 bb b--black-20">{{ movie.original_title }}</td>
+            <td class="pv3 pr3 bb b--black-20">{{ movie.vote_average }}</td>
+            <td class="pv3 pr3 bb b--black-20">{{ movie.vote_count }}</td>
+            <td class="pv3 pr3 bb b--black-20"><img [src]='movie.poster_path'/></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
